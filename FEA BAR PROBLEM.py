@@ -2,7 +2,6 @@
 # by Yaswanth Ram Kumar
 import numpy as np
 import matplotlib.pyplot as plt
-import plotly.graph_objects as go
 
 L = float(input("Enter length of the beam : "))
 A = float(input("Enter the Area of cross section at the fixed end A(0) : "))
@@ -54,25 +53,11 @@ for i in range(num_elements):  #stress = Young's Modulus x strain
     stresses.append(stress)
 print("Stresses :\n", stresses)
 
-
-
-fig = go.Figure()
-
-#fig.add_trace(go.Scatter(x=x_coords[:-1], y=y_coords[1:], mode='markers+lines', marker=dict(color='blue'), name='Deformed Beam'))
-fig.add_trace(go.Scatter(x=x_coords[:-1], y=y_coords[1:], mode='markers', marker=dict(color=strains, colorscale='viridis', colorbar=dict(title='Strain')), name='Strain'))
-
-fig.update_layout(
-    title='Deformed Beam with Color Representation of Strain',
-    xaxis_title='Beam Length (m)',
-    yaxis_title='Displacement (m)',
-)
-
-fig.show()
-'''plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 6))
 plt.plot(x_coords[:-1], y_coords[1:], '-bo', label='Deformed Beam')
 plt.xlabel('Beam Length (m)')
 plt.ylabel('Displacement (m)')
 plt.title('Deformed Beam with Color Representation of Strain')
 plt.scatter(x_coords[:-1], y_coords[1:], c=strains, cmap='viridis', label='Strain')
 plt.colorbar(label='Strain')
-plt.show()'''
+plt.show()
